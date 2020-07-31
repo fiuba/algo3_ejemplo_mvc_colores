@@ -6,13 +6,13 @@ import java.awt.event.MouseEvent;
 import model.ModeloObservable;
 import view.VistaModeloDato;
 
-public class ControladorMous extends MouseAdapter {
+public class ControladorMouse extends MouseAdapter {
 
     ModeloObservable modelo;
 
     VistaModeloDato vista;
 
-    public ControladorMous(ModeloObservable modelo, VistaModeloDato vista) {
+    public ControladorMouse(ModeloObservable modelo, VistaModeloDato vista) {
         this.modelo = modelo;
         this.vista = vista;
     }

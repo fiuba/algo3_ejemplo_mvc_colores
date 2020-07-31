@@ -2,10 +2,10 @@
 
 Actor User
 
-User -> ControladorMous: mousePressed(event Event)
-ControladorMous -> ModeloObservable: inicializarModeloDato(vista.posicion)
+User -> ControladorMouse: mousePressed(event Event)
+ControladorMouse -> ModeloObservable: inicializarModeloDato(vista.posicion)
 ModeloObservable -> ModeloObservable: setChanged()
-ControladorMous -> ModeloObservable: notifyObservers(vista)
+ControladorMouse -> ModeloObservable: notifyObservers(vista)
 loop todo Observer
         ModeloObservable -> VistaModeloDato: update()
 end

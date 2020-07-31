@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 
 import model.ModeloObservable;
 import model.Posicion;
-import controller.ControladorMous;
+import controller.ControladorMouse;
 
 public abstract class VistaModeloDato extends JPanel implements Observer {
 
@@ -31,7 +31,7 @@ public abstract class VistaModeloDato extends JPanel implements Observer {
         this.posicion = posicion;
         this.modelo = modelo;
         this.modelo.addObserver(this);
-        addMouseListener(new ControladorMous(modelo, this));
+        addMouseListener(new ControladorMouse(modelo, this));
 
     }
 

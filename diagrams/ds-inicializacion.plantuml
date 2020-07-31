@@ -26,8 +26,8 @@ Juego -> VentanaTexto: VentanaTexto(tamanioGrilla, modelo)
 Create VistaModeloDatoTexto
 VentanaTexto -> VistaModeloDatoTexto: VistaModeloDatoTexto(pos, modelo)
 VistaModeloDatoTexto -> ModeloObservable: addObserver(this)
-Create ControladorMous
-VistaModeloDatoTexto -> ControladorMous: ControladorMous(modelo, this)
+Create ControladorMouse
+VistaModeloDatoTexto -> ControladorMouse: ControladorMouse(modelo, this)
 return controller
 VistaModeloDatoTexto -> VistaModeloDatoTexto: addMouseListener(controller)
 VentanaTexto -> VentanaTexto: add( vistaTexto )
