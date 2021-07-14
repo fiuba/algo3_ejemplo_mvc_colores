@@ -18,7 +18,7 @@ public abstract class VistaModeloDato extends JPanel implements Observer {
     public Posicion posicion;
 
     public void update(Observable o, Object arg) {
-
+        this.addMouseListener();
         VistaModeloDato vista = (VistaModeloDato) arg;
 
         if (vista.posicion.equals(this.posicion)) {

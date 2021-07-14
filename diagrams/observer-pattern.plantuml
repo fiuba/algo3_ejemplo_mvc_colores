@@ -1,0 +1,52 @@
+@startuml
+hide circle
+skinparam classAttributeIconSize 0
+
+skinparam stereotypeCBackgroundColor<< Foo >> DimGray
+
+interface Observer <<interface>>{
+        update(o : Observable, arg : Object) : void
+}
+
+class VistaModeloDato {
+        + VistaModeloDato(posicion : Posicion, modelo : ModeloObservable) : VistaModeloDato
+        + update(Observable o, Object arg) : void
+}
+
+class Observable {
+        + addObserver(Observer o) : void
+        + notifyObservers(Object arg) : void
+        + setChanged() : void 
+        /'
+         ' changed = true;
+         '/
+}
+
+
+class ModeloObservable {
+
+    - modeloDatos : int[][]
+
+    + setModeloDato(Posicion posicion, int dato) : void 
+    + inicializarModeloDato(Posicion posicion) : void 
+}
+
+note right of ModeloObservable::setModeloDato
+modeloDatos[posicion.x][posicion.y] = dato;
+end note
+
+note right of ModeloObservable::inicializarModeloDato
+modeloDatos[posicion.x][posicion.y] = 0;
+setChanged();
+end note
+
+
+Observer <|.. VistaModeloDato
+Observable <|-- ModeloObservable
+
+Observer -o Observable
+
+class Observable #LightSkyBlue
+interface Observer #LightSkyBlue
+
+@enduml

@@ -1,0 +1,42 @@
+@startuml
+hide circle
+skinparam classAttributeIconSize 0
+
+class JPanel {
+        + addMouseListener(MouseListener l) void
+}
+
+class VistaModeloDato {
+        + VistaModeloDato(Posicion posicion, ModeloObservable modelo) : void 
+        + update(Observable o, Object arg) : void
+        
+}
+
+interface MouseListener {
+        + mousePressed(MouseEvent e) void 
+}
+
+class ControllerMouse {
+        + mousePressed(MouseEvent mouseEvent) void
+}
+
+JPanel <|-- VistaModeloDato
+MouseListener <|.. ControllerMouse
+
+VistaModeloDato -> ControllerMouse : <<instanciate>>
+interface JPanel #LightSkyBlue
+interface MouseListener #LightSkyBlue
+
+note left of VistaModeloDato::VistaModeloDato
+this.posicion = posicion;
+this.modelo = modelo;
+this.modelo.addobserver(this);
+addmouselistener(new controladormouse(modelo, this));
+end note
+
+note right of ControllerMouse::mousePressed
+modelo.inicializarModeloDato(vista.posicion)
+modelo.notifyObservers(vista)
+end note
+
+@enduml
