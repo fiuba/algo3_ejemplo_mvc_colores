@@ -3,36 +3,36 @@
 Actor User
 
 User -> App: start
-Create Juego
-App -> Juego: new
-App -> Juego: iniciar()
-Juego -> Juego: inicializarModelo()
+Create ":Juego"
+App -> ":Juego": new
+App -> ":Juego": iniciar()
+":Juego" -> ":Juego": inicializarModelo()
 
-Create ModeloObservable
-Juego -> ModeloObservable: ModeloObservable()
+Create ":ModeloObservable"
+":Juego" -> ":ModeloObservable": ":ModeloObservable"()
 
-Juego -> Juego: completarModelo()
+":Juego" -> ":Juego": completarModelo()
 
 loop Todas Celdas
-        Juego -> ModeloObservable: setModeloDato( pos, color)
+        ":Juego" -> ":ModeloObservable": setModeloDato( pos, color)
 end
 
-Juego -> Juego: crearVentanas()
-Juego -> Juego: crearVetanaTexto()
+":Juego" -> ":Juego": crearVentanas()
+":Juego" -> ":Juego": crearVetanaTexto()
 
-Create VentanaTexto
-Juego -> VentanaTexto: VentanaTexto(tamanioGrilla, modelo)
+Create ":VentanaTexto"
+":Juego" -> ":VentanaTexto": ":VentanaTexto"(tamanioGrilla, modelo)
 
 Create VistaModeloDatoTexto
-VentanaTexto -> VistaModeloDatoTexto: VistaModeloDatoTexto(pos, modelo)
-VistaModeloDatoTexto -> ModeloObservable: addObserver(this)
+":VentanaTexto" -> VistaModeloDatoTexto: VistaModeloDatoTexto(pos, modelo)
+VistaModeloDatoTexto -> ":ModeloObservable": addObserver(this)
 Create ControladorMouse
 VistaModeloDatoTexto -> ControladorMouse: ControladorMouse(modelo, this)
 return controller
 VistaModeloDatoTexto -> VistaModeloDatoTexto: addMouseListener(controller)
-VentanaTexto -> VentanaTexto: add( vistaTexto )
+":VentanaTexto" -> ":VentanaTexto": add( vistaTexto )
 
-Juego -> Juego: crearVetanaColor()
+":Juego" -> ":Juego": crearVetanaColor()
 note right
         // Equivalente ventana Texto
 end note

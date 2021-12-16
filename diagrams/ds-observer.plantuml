@@ -2,11 +2,11 @@
 
 Actor User
 
-User -> ControladorMouse: mousePressed(event Event)
-ControladorMouse -> ModeloObservable: inicializarModeloDato(vista.posicion)
-ModeloObservable -> ModeloObservable: setChanged()
-ControladorMouse -> ModeloObservable: notifyObservers(vista)
+User -> ":ControladorMouse": mousePressed(event Event)
+":ControladorMouse" -> ":ModeloObservable": inicializarModeloDato(vista.posicion)
+":ModeloObservable" -> ":ModeloObservable": setChanged()
+":ControladorMouse" -> ":ModeloObservable": notifyObservers(vista)
 loop todo Observer
-        ModeloObservable -> VistaModeloDato: update()
+        ":ModeloObservable" -> ":VistaModeloDato": update()
 end
 @enduml
