@@ -2,7 +2,7 @@
 hide circle
 skinparam classAttributeIconSize 0
 
-skinparam stereotypeCBackgroundColor<< Foo >> DimGray
+skinparam stereotypeCBackgroundColor<< Foo >> Blue
 
 interface Observer <<interface>>{
         update(o : Observable, arg : Object) : void
@@ -46,7 +46,7 @@ Observable <|-- ModeloObservable
 
 Observer -o Observable
 
-class Observable #LightSkyBlue
-interface Observer #LightSkyBlue
+class Observable #CCFFFF
+interface Observer #CCFFFF
 
 @enduml

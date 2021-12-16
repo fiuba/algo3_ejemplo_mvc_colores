@@ -1,0 +1,35 @@
+@startuml
+hide circle
+skinparam classAttributeIconSize 0
+
+class JPanel {
+        + addMouseListener(MouseListener l)
+}
+
+class VistaModeloDato {
+    + VistaModeloDato(Posicion posicion, ModeloObservable modelo)
+    + update(Observable o, Object arg)
+    + addMouseListener(MouseListener l)
+}
+
+class MouseAdapter {
+    + mousePressed(MouseEvent e)
+}
+
+
+class ControladorMouse {
+    + ControladorMouse(ModeloObservable modelo, VistaModeloDato vista)
+    + mousePressed(MouseEvent mouseEvent)
+}
+
+JPanel <|-- VistaModeloDato
+
+MouseAdapter <|-- ControladorMouse
+
+VistaModeloDato .> ControladorMouse: "<<instanciate>>"
+
+
+class JPanel #CCFFFF
+class MouseAdapter #CCFFFF
+
+@enduml
