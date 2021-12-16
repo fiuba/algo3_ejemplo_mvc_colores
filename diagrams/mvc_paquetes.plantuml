@@ -1,0 +1,20 @@
+@startuml
+
+package "Modelo" {
+        class ModeloObservable
+}
+
+package "Controller" {
+        class ControladorMouse
+}
+
+package "View" {
+        class VistaColor
+}
+
+
+View -> Controller
+View --> Modelo
+Controller -> Modelo
+
+@enduml
