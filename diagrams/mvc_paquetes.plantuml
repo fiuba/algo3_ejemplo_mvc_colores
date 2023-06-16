@@ -14,6 +14,7 @@ package "View" {
 
 
 View -> Controller
+Controller -> View
 View --> Modelo
 Controller -> Modelo
 

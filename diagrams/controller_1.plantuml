@@ -21,10 +21,11 @@ class ControllerMouse {
 }
 
 JPanel <|-- VistaModeloDato
-MouseListener <|.. ControllerMouse
+ControllerMouse ..|> MouseListener
 
-VistaModeloDato -> ControllerMouse : <<instanciate>>
-interface JPanel #LightSkyBlue
+VistaModeloDato ..> ControllerMouse : <<instanciate>>
+
+class JPanel #LightSkyBlue
 interface MouseListener #LightSkyBlue
 
 note left of VistaModeloDato::VistaModeloDato

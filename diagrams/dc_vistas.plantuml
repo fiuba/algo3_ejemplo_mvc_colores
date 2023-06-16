@@ -1,0 +1,14 @@
+@startuml
+
+hide circle
+skinparam classAttributeIconSize 0
+
+JPanel <|-- VistaModeloDato
+VistaModeloDato <|-- VistaModeloDatoColor
+VistaModeloDato <|-- VistaModeloDatoTexto
+
+class JPanel #LightSkyBlue
+
+
+
+@enduml

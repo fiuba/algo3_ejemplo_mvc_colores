@@ -24,9 +24,9 @@ class ControladorMouse {
 
 JPanel <|-- VistaModeloDato
 
-MouseAdapter <|-- ControladorMouse
+ControladorMouse --|> MouseAdapter
 
-VistaModeloDato .> ControladorMouse: "<<instanciate>>"
+VistaModeloDato ..> ControladorMouse: "<<instanciate>>"
 
 
 class JPanel #CCFFFF

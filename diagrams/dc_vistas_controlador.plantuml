@@ -1,0 +1,37 @@
+@startuml
+
+hide circle
+skinparam classAttributeIconSize 0
+
+abstract class VistaModeloDato {
+    + VistaModeloDato(Posicion posicion, ModeloObservable modelo)
+    + {abstract} update(Observable o, Object arg)
+}
+
+class VistaModeloDatoColor {
+    + VistaModeloDatoColor(Posicion posicion, ModeloObservable modelo)
+    + update(Observable o, Object arg)
+}
+
+class ModeloObservable {
+
+    + hacerTarea()
+}
+
+class ControladorMouse {
+
+    + ControladorMouse(ModeloObservable modelo, VistaModeloDato vista)
+    + void mousePressed(MouseEvent mouseEvent) {
+
+}
+
+VistaModeloDato <|-- VistaModeloDatoColor
+VistaModeloDato o- "1" ModeloObservable
+
+ControladorMouse <.. VistaModeloDato: "<<instanciate>>"
+MouseAdapter <|-- ControladorMouse
+
+VentanaColor *-  VistaModeloDatoColor
+class MouseAdapter #LightSkyBlue
+
+@enduml

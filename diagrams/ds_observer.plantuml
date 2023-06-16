@@ -1,5 +1,5 @@
-@startuml
-
+'@startuml
+'
 Actor User
 
 User -> ":ControladorMouse": mousePressed(event Event)
@@ -7,6 +7,6 @@ User -> ":ControladorMouse": mousePressed(event Event)
 ":ModeloObservable" -> ":ModeloObservable": setChanged()
 ":ControladorMouse" -> ":ModeloObservable": notifyObservers(vista)
 loop todo Observer
-        ":ModeloObservable" -> ":VistaModeloDato": update()
+        ":ModeloObservable" -> ":VistaModeloDato": update(...)
 end
 @enduml
